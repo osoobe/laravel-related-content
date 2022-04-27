@@ -12,9 +12,14 @@ class Alias extends Model
     use TimeDiff;
 
     protected $fillable = [
-        'relatable_id',
-        'relatable_type',
+        'aliasable_id',
+        'aliasable_type',
         'alias'
     ];
+
+
+    public function aliasable() {
+        return $this->morphTo();
+    }
 
 }

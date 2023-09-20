@@ -12,9 +12,28 @@ class RelatedContent extends Model
     protected $fillable = [
         'relatable_id',
         'relatable_type',
-        'target_id',
-        'target_type',
+        'targetable_id',
+        'targetable_type',
     ];
+
+    /**
+     * Relatable content
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function relatable() {
+        return $this->morphTo();
+    }
+
+
+    /**
+     * Target content
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function targetable() {
+        return $this->morphTo();
+    }
 
 
 }
